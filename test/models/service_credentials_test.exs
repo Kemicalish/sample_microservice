@@ -14,7 +14,6 @@ defmodule SampleMicroservice.ServiceCredentialsTest do
   @tag :external
   test "From raw service credentials list to list of %ServiceCredentials.struct" do
     [first_credentials | _credentials] = KongAdminRepo.all(ServiceCredentials) 
-    IO.inspect first_credentials
     assert "django-services-todos" = first_credentials.name
   end
 

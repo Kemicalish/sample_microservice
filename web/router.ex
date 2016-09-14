@@ -5,7 +5,9 @@ defmodule SampleMicroservice.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", SampleMicroservice do
+  scope "/", SampleMicroservice do
     pipe_through :api
+
+    resources "/consumers", ConsumerController, only: [:index, :create]
   end
 end
