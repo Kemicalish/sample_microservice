@@ -21,20 +21,18 @@ defmodule SampleMicroservice.ConsumerController do
       conn
        |> put_status(:unprocessable_entity)
        |> render(SampleMicroservice.ErrorView, "422.json") 
-      _ ->
-        IO.inspect result
     end
   end
 
-  def delete(conn, username) do
+  def delete(conn, %{"id" => username}) do
     case result = KongAdminRepo.delete(Consumer, username) do
       {:ok, _deleted}   -> 
         conn
           |> put_status(:no_content)
       {:error, error}   ->
         conn
-        |> put_status(:unprocessable_entity)
-        |> render(SampleMicroservice.ErrorView, "422.json")
+          |> put_status(:not_found)
+          |> render(SampleMicroservice.ErrorView, "404.json")
     end
   end 
 end 

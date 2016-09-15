@@ -21,11 +21,14 @@ defmodule SampleMicroservice.ConsumerControllerTest do
   end
 
   test "gets 404 when trying to delete a data that doesnt exist", %{conn: conn} do
+    conn = delete conn, consumer_path(conn, :delete, "thisuserdoesntexistsdude300000")
+    assert json_response(conn, 404)["errors"]["detail"] =~ "Page not found"
   end
 
   test "deletes chosen resource", %{conn: conn} do
     #first create smth
     post conn, consumer_path(conn, :create), consumer: @valid_attrs
     conn = delete conn, consumer_path(conn, :delete, "phoenix_test")
+    assert 204 == conn.status
   end
 end
