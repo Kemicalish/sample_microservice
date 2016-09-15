@@ -21,6 +21,7 @@ defmodule SampleMicroservice.KongAdminAdapter do
     require Poison
     use HTTPoison.Base
 
+    def process_request_body({:form, form}), do: {:form, form} 
     def process_request_body(body), do: Poison.encode!(body)
 
     def process_response_body(""), do: nil
@@ -74,7 +75,7 @@ defmodule SampleMicroservice.KongAdminAdapter do
   Implementation for `Dayron.Adapter.delete/3`.
   """
   def delete(url, headers \\ [], opts \\ []) do
-    Client.start
+    opts = []
     url |> Client.delete(headers, opts) |> translate_response
   end
 

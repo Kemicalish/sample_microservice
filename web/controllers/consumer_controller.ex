@@ -12,20 +12,29 @@ defmodule SampleMicroservice.ConsumerController do
   end
 
   def create(conn, consumer = %{"consumer" => %{"username" => username}}) do
-    IO.inspect("Try create")
-    IO.inspect consumer
-    IO.inspect username
-    case result = KongAdminRepo.insert(Consumer, %{username: username}) do
+    case result = KongAdminRepo.insert(Consumer, {:form, [{"username", username}]}) do
       {:ok, consumer}    -> 
-        conn
-          |> put_status(:created)
-          |> render("show.json", consumer: consumer) 
+      conn
+        |> put_status(:created)
+        |> render("show.json", consumer: consumer) 
       {:error, error} -> 
-        conn
-          |> put_status(:unprocessable_entity)
-          |> render(SampleMicroservice.ErrorView, "422.json") 
+      conn
+       |> put_status(:unprocessable_entity)
+       |> render(SampleMicroservice.ErrorView, "422.json") 
       _ ->
         IO.inspect result
     end
   end
+
+  def delete(conn, username) do
+    case result = KongAdminRepo.delete(Consumer, username) do
+      {:ok, _deleted}   -> 
+        conn
+          |> put_status(:no_content)
+      {:error, error}   ->
+        conn
+        |> put_status(:unprocessable_entity)
+        |> render(SampleMicroservice.ErrorView, "422.json")
+    end
+  end 
 end 

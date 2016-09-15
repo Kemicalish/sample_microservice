@@ -34,7 +34,7 @@ defmodule SampleMicroservice.Mixfile do
      {:phoenix_pubsub, "~> 1.0"},
      {:phoenix_ecto, "~> 3.0"},
      {:mariaex, ">= 0.0.0"},
-     {:dayron, git: "https://github.com/RaphSfeir/Dayron"}, 
+     {:dayron, git: "https://github.com/RaphSfeir/Dayron.git"}, 
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"}]
   end

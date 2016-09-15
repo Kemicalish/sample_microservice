@@ -8,6 +8,6 @@ defmodule SampleMicroservice.Router do
   scope "/", SampleMicroservice do
     pipe_through :api
 
-    resources "/consumers", ConsumerController, only: [:index, :create]
+    resources "/consumers", ConsumerController, only: [:index, :create, :delete]
   end
 end
