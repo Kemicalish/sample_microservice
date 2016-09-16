@@ -16,6 +16,7 @@ defmodule SampleMicroservice.ServiceCredentials do
   use Ecto.Schema
   use Dayron.Model
   alias SampleMicroservice.KongAdminRepo
+  alias SampleMicroservice.ServiceCredentials
 
   schema "consumers/admin/oauth2" do
     field :client_id, :string
@@ -27,6 +28,7 @@ defmodule SampleMicroservice.ServiceCredentials do
 
 
   def get_by_service_name(service_name) do
+    KongAdminRepo.get_by(ServiceCredentials, :client_id, service_name)
     with {:ok, services} <- KongAdminRepo.all(ServiceCredentials),
     service_credentials = %SampleMicroservice.ServiceCredentials{} <- Enum.find(services, fn(serv) -> serv.client_id == service_name end) do service_credentials
     else

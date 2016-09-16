@@ -15,15 +15,27 @@ defmodule SampleMicroservice.AccessController do
     }
   end
 
+  defp token_form_data(service_credentials) do
+    IO.inspect service_credentials
+    [
+      {"grant_type", "password"},
+      {"cient_id", service_credentials.client_id},
+      {"client_secret", service_credentials.client_secret},
+      {"provision_key", "testtestdudeman"}, 
+      {"authenticated_userid", "admin"},
+      {"scope","guest"},
+      {"password", "sg123456"}
+    ]
+  end
+
   def create(conn, %{ "login" => login_params = %{ "service_id" => service_id, "login" => login, "password" => password} } ) do
     %{id: id, name: name, password_hash: password_hash} = check_account(login, password)
-    IO.inspect ServiceCredentials.get_by_service_name(service_id)
+    credentials = KongAdminRepo.get_by(ServiceCredentials, :client_id, service_id)
     #{:ok, service}  = KongAdminRepo.get_all(ServiceCredentials, service_id)
-    {:ok, token}    = KongAdminRepo.insert(OauthToken, login_params)
+    {:ok, token}    = KongAdminRepo.insert(OauthToken, {:form, token_form_data(credentials)})
 
     conn 
       |> put_status(:created)
       |> render("show.json", user_access: token)
   end
-
 end

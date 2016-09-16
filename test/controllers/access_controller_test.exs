@@ -1,7 +1,7 @@
 defmodule SampleMicroservice.AccessControllerTest do
   use SampleMicroservice.ConnCase
   
-  @valid_attrs %{ login: "phoenix_test", password: "phoenix", service_id: "test_service"}
+  @valid_attrs %{ login: "phoenix_test", password: "phoenix", service_id: "userman-services-elixir"}
   @invalid_attrs %{ login: "1", password: "a", service_id: "no_service" }
 
   setup %{conn: conn} do

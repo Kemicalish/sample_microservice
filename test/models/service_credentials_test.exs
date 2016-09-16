@@ -11,8 +11,14 @@ defmodule SampleMicroservice.ServiceCredentialsTest do
 
   @tag :external
   test "Get by service name the service infos" do
-    service_credentials = ServiceCredentials.get_by_service_name("username-services-elixir")
-    assert "username-services-elixir" = service_credentials.client_id
+    service_credentials = KongAdminRepo.get_by(ServiceCredentials,:client_id,"userman-services-elixir")
+    assert "userman-services-elixir" = service_credentials.client_id
+  end
+
+  @tag :external
+  test "Gets 404 when service is unknown trying to get by service info" do
+    service_not_found = KongAdminRepo.get_by(ServiceCredentials, :client_id, "noneosndsonfsodnf")
+    assert nil == service_not_found
   end
 
   @tag :external
