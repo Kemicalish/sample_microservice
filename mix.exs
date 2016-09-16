@@ -18,7 +18,7 @@ defmodule SampleMicroservice.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {SampleMicroservice, []},
-     applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext, :dayron,
+     applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext, :dayron,:comeonin,
                     :phoenix_ecto, :mariaex]]
   end
 
@@ -35,6 +35,7 @@ defmodule SampleMicroservice.Mixfile do
      {:phoenix_ecto, "~> 3.0"},
      {:mariaex, ">= 0.0.0"},
      {:dayron, git: "https://github.com/RaphSfeir/Dayron.git"}, 
+     {:comeonin, "~> 2.5"},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"}]
   end

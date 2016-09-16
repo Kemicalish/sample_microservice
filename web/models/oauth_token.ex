@@ -7,7 +7,11 @@ defmodule SampleMicroservice.OauthToken do
   use Dayron.Model
   
   schema "oauth2/token" do
-    field :secret, :string 
+    field :secret,          :string 
+    field :refresh_token,   :string
+    field :access_token,    :string
+    field :token_type,      :string
+    field :credential_id,   :string
   end
 end
 

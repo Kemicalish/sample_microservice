@@ -10,6 +10,12 @@ defmodule SampleMicroservice.ServiceCredentialsTest do
   end
 
   @tag :external
+  test "Get by service name the service infos" do
+    service_credentials = ServiceCredentials.get_by_service_name("username-services-elixir")
+    assert "username-services-elixir" = service_credentials.client_id
+  end
+
+  @tag :external
   test "From raw service credentials list to list of %ServiceCredentials.struct" do
     [first_credentials | _credentials] = KongAdminRepo.all(ServiceCredentials) 
     assert "userman-services-elixir" = first_credentials.name
