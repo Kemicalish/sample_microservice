@@ -26,6 +26,9 @@ config :logger, :console,
 config :sample_microservice, SampleMicroservice.KongAdminRepo,
   adapter: SampleMicroservice.KongAdminAdapter, 
   url: "http://admin-gateway.pow.tf"
+config :sample_microservice, SampleMicroservice.KongRepo,
+  adapter: SampleMicroservice.KongAdminAdapter,
+  url: "https://gateway.pow.tf"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

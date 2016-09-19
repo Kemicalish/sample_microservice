@@ -59,6 +59,7 @@ defmodule SampleMicroservice.KongAdminAdapter do
   Implementation for `Dayron.Adapter.post/4`.
   """
   def post(url, body, headers \\ [], opts \\ []) do
+    opts = [{:hackney, [insecure: true]}]
     Client.start
     url |> Client.post(body, headers, opts) |> translate_response
   end

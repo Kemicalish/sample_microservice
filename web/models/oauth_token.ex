@@ -6,12 +6,13 @@ defmodule SampleMicroservice.OauthToken do
   use Ecto.Schema
   use Dayron.Model
   
-  schema "userman-services-elixir/oauth2/token" do
+  schema "rs/oauth2/token" do
     field :secret,          :string 
     field :refresh_token,   :string
     field :access_token,    :string
     field :token_type,      :string
     field :credential_id,   :string
+    field :expires_in,      :integer
   end
 end
 
