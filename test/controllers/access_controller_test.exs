@@ -14,11 +14,11 @@ defmodule SampleMicroservice.AccessControllerTest do
   test "creates resource and redirects when data is valid", %{conn: conn} do
     Repo.insert(User.registration_changeset(%User{}, %{ name: @valid_attrs.name, password: @valid_attrs.password }))
     conn = post conn, access_path(conn, :create), login: @valid_attrs
-    assert json_response(conn, 201)["data"]["id"]
+    assert json_response(conn, 201)["data"]["access_token"]
   end
 
   @tag :external
-  test "gets a forbidden status when credentials are invalid" do
+  test "gets a forbidden status when credentials are invalid", %{conn: conn} do
     conn = post conn, access_path(conn, :create), login: @invalid_attrs
     assert json_response(conn, 401)["errors"]["detail"]
   end

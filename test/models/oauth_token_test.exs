@@ -2,7 +2,6 @@ defmodule SampleMicroservice.OauthTokenTest do
   use SampleMicroservice.ConnCase
 
   alias SampleMicroservice.OauthToken
-  alias SampleMicroservice.KongAdminRepo
 
   test "defines a oauthtoken struct" do
     oauth_token= struct(OauthToken, %{refresh_token: "abcd", access_token: "defc"})  
