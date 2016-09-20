@@ -40,16 +40,15 @@ defmodule SampleMicroservice.AccessController do
   def create(conn, %{ "login" => login_params = %{ "service_id" => service_id, "login" => login, "password" => password} } ) do
     with %{id: id, name: name, password_hash: password_hash} <- check_account(login, password),
     credentials = %ServiceCredentials{} <- KongAdminRepo.get_by(ServiceCredentials, :client_id, service_id),
-    {:ok, token}    <- KongRepo.insert(OauthToken, {:form, token_form_data(credentials)}) do conn
-    |> put_status(:created)
-    |> render("show.json", access: token)
+    post_data <- token_form_data(credentials),
+    {:ok, token}    <- KongRepo.insert(OauthToken, {:form, post_data}) do conn
+      |> put_status(:created)
+      |> render("show.json", access: token)
     else 
       {:error, :forbidden} ->
         conn 
         |> put_status(:unauthorized)
         |> render(SampleMicroservice.ErrorView, "403.json")
-      {:error, error} ->
-        IO.inspect error
     end
   end
 end

@@ -16,13 +16,13 @@ defmodule SampleMicroservice.User do
   @doc  """
   Creates a changeset based on the model and the params. If no params are provided, an invalid changeset is returned.
   """
-  def changeset(model, params \\ :empty) do
+  def changeset(model, params \\ %{}) do
     model
       |> cast(params, @required_fields, @optional_fields)
       |> validate_length(:name, min: 3, max: 20)
   end
 
-  def registration_changeset(model, params \\ :empty) do
+  def registration_changeset(model, params \\ %{}) do
     model
       |> changeset(params)
       |> cast(params, @required_registration_fields, @optional_fields)
