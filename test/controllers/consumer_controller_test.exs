@@ -28,7 +28,7 @@ defmodule SampleMicroservice.ConsumerControllerTest do
   test "deletes chosen resource", %{conn: conn} do
     #first create smth
     post conn, consumer_path(conn, :create), consumer: @valid_attrs
-    conn = delete conn, consumer_path(conn, :delete, "phoenix_test")
+    conn = delete conn, consumer_path(conn, :delete, @valid_attrs.username)
     assert 204 == conn.status
   end
 end

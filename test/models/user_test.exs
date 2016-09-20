@@ -26,4 +26,3 @@ defmodule SampleMicroservice.UserTest do
     refute changeset.valid?
   end
 end
-
