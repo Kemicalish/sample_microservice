@@ -1,7 +1,7 @@
-defmodule SampleMicroservice.UserTest do
-  use SampleMicroservice.ModelCase
+defmodule UserManager.UserTest do
+  use UserManager.ModelCase
 
-  alias SampleMicroservice.User
+  alias UserManager.User
 
   @valid_attrs %{name: "valid_name12", password_hash: "SoSks92s_ZAs93kLinsi2osi12", password: "s3cr3t_Dud3"}
   @invalid_attrs %{name: "this name is too long for the correct name size omg", password: "1234"}

@@ -1,12 +1,12 @@
-defmodule SampleMicroservice.ConsumerView do
-  use SampleMicroservice.Web, :view
+defmodule UserManager.ConsumerView do
+  use UserManager.Web, :view
 
   def render("index.json", %{consumers: consumers}) do
-    %{data: render_many(consumers, SampleMicroservice.ConsumerView, "consumer.json")}
+    %{data: render_many(consumers, UserManager.ConsumerView, "consumer.json")}
   end
 
   def render("show.json", %{consumer: consumer}) do
-    %{data: render_one(consumer, SampleMicroservice.ConsumerView, "consumer.json")}
+    %{data: render_one(consumer, UserManager.ConsumerView, "consumer.json")}
   end
 
   def render("consumer.json", %{consumer: consumer}) do

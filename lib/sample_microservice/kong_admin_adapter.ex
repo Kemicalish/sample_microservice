@@ -1,4 +1,4 @@
-defmodule SampleMicroservice.KongAdminAdapter do
+defmodule UserManager.KongAdminAdapter do
   @moduledoc """
   Makes http requests using HTTPoison library.
   Use this adapter to make http requests to an external Rest API.

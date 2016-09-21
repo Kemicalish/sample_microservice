@@ -1,7 +1,7 @@
-defmodule SampleMicroservice.AccessControllerTest do
-  use SampleMicroservice.ConnCase
+defmodule UserManager.AccessControllerTest do
+  use UserManager.ConnCase
 
-  alias SampleMicroservice.User
+  alias UserManager.User
   
   @valid_attrs %{ login: "phoenix_test_user",  name: "phoenix_test_user", password_hash: "Spo9s90s1mLonI2jK34O2mlsL39SoAk", password: "S3cr3t_Dud3", service_id: "django-services-todos"}
   @invalid_attrs %{ login: "1", password: "a", service_id: "django-services-todos" }

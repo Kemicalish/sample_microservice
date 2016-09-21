@@ -1,7 +1,7 @@
-defmodule SampleMicroservice.OauthTokenTest do
-  use SampleMicroservice.ConnCase
+defmodule UserManager.OauthTokenTest do
+  use UserManager.ConnCase
 
-  alias SampleMicroservice.OauthToken
+  alias UserManager.OauthToken
 
   test "defines a oauthtoken struct" do
     oauth_token= struct(OauthToken, %{refresh_token: "abcd", access_token: "defc"})  

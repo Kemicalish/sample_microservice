@@ -1,11 +1,11 @@
-defmodule SampleMicroservice.AccessController do
-  use SampleMicroservice.Web, :controller
+defmodule UserManager.AccessController do
+  use UserManager.Web, :controller
 
-  alias SampleMicroservice.OauthToken
-  alias SampleMicroservice.KongAdminRepo
-  alias SampleMicroservice.ServiceCredentials
-  alias SampleMicroservice.User
-  alias SampleMicroservice.KongRepo
+  alias UserManager.OauthToken
+  alias UserManager.KongAdminRepo
+  alias UserManager.ServiceCredentials
+  alias UserManager.User
+  alias UserManager.KongRepo
 
   plug :scrub_params, "login" when action in [:create]
 
@@ -48,7 +48,7 @@ defmodule SampleMicroservice.AccessController do
       {:error, :forbidden} ->
         conn 
         |> put_status(:unauthorized)
-        |> render(SampleMicroservice.ErrorView, "403.json")
+        |> render(UserManager.ErrorView, "403.json")
     end
   end
 end

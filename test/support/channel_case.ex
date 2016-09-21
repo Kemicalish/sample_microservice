@@ -1,4 +1,4 @@
-defmodule SampleMicroservice.ChannelCase do
+defmodule UserManager.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -20,22 +20,22 @@ defmodule SampleMicroservice.ChannelCase do
       # Import conveniences for testing with channels
       use Phoenix.ChannelTest
 
-      alias SampleMicroservice.Repo
+      alias UserManager.Repo
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
 
 
       # The default endpoint for testing
-      @endpoint SampleMicroservice.Endpoint
+      @endpoint UserManager.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(SampleMicroservice.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(UserManager.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(SampleMicroservice.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(UserManager.Repo, {:shared, self()})
     end
 
     :ok

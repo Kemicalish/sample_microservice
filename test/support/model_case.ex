@@ -1,4 +1,4 @@
-defmodule SampleMicroservice.ModelCase do
+defmodule UserManager.ModelCase do
   @moduledoc """
   This module defines the test case to be used by
   model tests.
@@ -16,20 +16,20 @@ defmodule SampleMicroservice.ModelCase do
 
   using do
     quote do
-      alias SampleMicroservice.Repo
+      alias UserManager.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import SampleMicroservice.ModelCase
+      import UserManager.ModelCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(SampleMicroservice.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(UserManager.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(SampleMicroservice.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(UserManager.Repo, {:shared, self()})
     end
 
     :ok
@@ -59,7 +59,7 @@ defmodule SampleMicroservice.ModelCase do
   """
   def errors_on(struct, data) do
     struct.__struct__.changeset(struct, data)
-    |> Ecto.Changeset.traverse_errors(&SampleMicroservice.ErrorHelpers.translate_error/1)
+    |> Ecto.Changeset.traverse_errors(&UserManager.ErrorHelpers.translate_error/1)
     |> Enum.flat_map(fn {key, errors} -> for msg <- errors, do: {key, msg} end)
   end
 end

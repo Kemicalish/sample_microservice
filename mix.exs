@@ -1,8 +1,8 @@
-defmodule SampleMicroservice.Mixfile do
+defmodule UserManager.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :sample_microservice,
+    [app: :user_manager,
      version: "0.0.1",
      elixir: "~> 1.2",
      elixirc_paths: elixirc_paths(Mix.env),
@@ -17,7 +17,7 @@ defmodule SampleMicroservice.Mixfile do
   #
   # Type `mix help compile.app` for more information.
   def application do
-    [mod: {SampleMicroservice, []},
+    [mod: {UserManager, []},
      applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext, :dayron,:comeonin,
                     :phoenix_ecto, :mariaex]]
   end

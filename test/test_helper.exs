@@ -1,4 +1,4 @@
 ExUnit.start
 
-Ecto.Adapters.SQL.Sandbox.mode(SampleMicroservice.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(UserManager.Repo, :manual)
 

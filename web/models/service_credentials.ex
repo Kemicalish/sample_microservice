@@ -1,4 +1,4 @@
-defmodule SampleMicroservice.ServiceCredentials do
+defmodule UserManager.ServiceCredentials do
 
   def __from_json_list__(%{data: data}, opts) do
     Enum.map(data, &__from_json__(&1, opts))
@@ -15,8 +15,8 @@ defmodule SampleMicroservice.ServiceCredentials do
 
   use Ecto.Schema
   use Dayron.Model
-  alias SampleMicroservice.KongAdminRepo
-  alias SampleMicroservice.ServiceCredentials
+  alias UserManager.KongAdminRepo
+  alias UserManager.ServiceCredentials
 
   schema "consumers/admin/oauth2" do
     field :client_id, :string
@@ -30,7 +30,7 @@ defmodule SampleMicroservice.ServiceCredentials do
   def get_by_service_name(service_name) do
     KongAdminRepo.get_by(ServiceCredentials, :client_id, service_name)
     with {:ok, services} <- KongAdminRepo.all(ServiceCredentials),
-    service_credentials = %SampleMicroservice.ServiceCredentials{} <- Enum.find(services, fn(serv) -> serv.client_id == service_name end) do service_credentials
+    service_credentials = %UserManager.ServiceCredentials{} <- Enum.find(services, fn(serv) -> serv.client_id == service_name end) do service_credentials
     else
       _ -> {:error, :not_found}
     end

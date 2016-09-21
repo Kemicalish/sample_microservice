@@ -1,14 +1,14 @@
-defmodule SampleMicroservice.Endpoint do
-  use Phoenix.Endpoint, otp_app: :sample_microservice
+defmodule UserManager.Endpoint do
+  use Phoenix.Endpoint, otp_app: :user_manager
 
-  socket "/socket", SampleMicroservice.UserSocket
+  socket "/socket", UserManager.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :sample_microservice, gzip: false,
+    at: "/", from: :user_manager, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
@@ -36,5 +36,5 @@ defmodule SampleMicroservice.Endpoint do
     key: "_sample_microservice_key",
     signing_salt: "gJr/Urao"
 
-  plug SampleMicroservice.Router
+  plug UserManager.Router
 end

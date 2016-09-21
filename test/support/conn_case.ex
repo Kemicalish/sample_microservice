@@ -1,4 +1,4 @@
-defmodule SampleMicroservice.ConnCase do
+defmodule UserManager.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -20,23 +20,23 @@ defmodule SampleMicroservice.ConnCase do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
 
-      alias SampleMicroservice.Repo
+      alias UserManager.Repo
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
 
-      import SampleMicroservice.Router.Helpers
+      import UserManager.Router.Helpers
 
       # The default endpoint for testing
-      @endpoint SampleMicroservice.Endpoint
+      @endpoint UserManager.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(SampleMicroservice.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(UserManager.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(SampleMicroservice.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(UserManager.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}

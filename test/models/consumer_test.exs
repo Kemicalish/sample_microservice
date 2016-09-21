@@ -1,8 +1,8 @@
-defmodule SampleMicroservice.ConsumerTest do
+defmodule UserManager.ConsumerTest do
 
-  use SampleMicroservice.ConnCase
-  alias SampleMicroservice.Consumer
-  alias SampleMicroservice.KongAdminRepo
+  use UserManager.ConnCase
+  alias UserManager.Consumer
+  alias UserManager.KongAdminRepo
 
   @consumer_json """
   {

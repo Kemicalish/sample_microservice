@@ -1,7 +1,7 @@
-defmodule SampleMicroservice.ServiceCredentialsTest do
-  use SampleMicroservice.ConnCase
-  alias SampleMicroservice.ServiceCredentials
-  alias SampleMicroservice.KongAdminRepo
+defmodule UserManager.ServiceCredentialsTest do
+  use UserManager.ConnCase
+  alias UserManager.ServiceCredentials
+  alias UserManager.KongAdminRepo
 
   @tag :external
   test "From raw structure to %ServiceCredentials struct" do

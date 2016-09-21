@@ -1,10 +1,10 @@
-defmodule SampleMicroservice.UserController do
-  use SampleMicroservice.Web, :controller
+defmodule UserManager.UserController do
+  use UserManager.Web, :controller
 
-  alias SampleMicroservice.KongRepo
-  alias SampleMicroservice.KongAdminRepo
-  alias SampleMicroservice.User
-  alias SampleMicroservice.Consumer
+  alias UserManager.KongRepo
+  alias UserManager.KongAdminRepo
+  alias UserManager.User
+  alias UserManager.Consumer
 
   plug :scrub_params, "user" when action in [:create, :update]
 
@@ -25,11 +25,11 @@ defmodule SampleMicroservice.UserController do
       {:error, %{request: %Dayron.Request{body: body}}} ->
         conn
           |> put_status(:conflict)
-          |> render(SampleMicroservice.ErrorView, "409.json") 
+          |> render(UserManager.ErrorView, "409.json") 
       {:error, changeset} ->
         conn 
           |> put_status(:unprocessable_entity)
-          |> render(SampleMicroservice.ChangesetView, "error.json", changeset: changeset)
+          |> render(UserManager.ChangesetView, "error.json", changeset: changeset)
     end
   end
 
@@ -48,7 +48,7 @@ defmodule SampleMicroservice.UserController do
       {:error, changeset} ->
         conn
           |> put_status(:unprocessable_entity)
-          |> render(SampleMicroservice.ChangesetView, "error.json", changeset: changeset)
+          |> render(UserManager.ChangesetView, "error.json", changeset: changeset)
     end
   end
 

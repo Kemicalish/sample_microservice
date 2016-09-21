@@ -6,7 +6,7 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
-config :sample_microservice, SampleMicroservice.Endpoint,
+config :user_manager, UserManager.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -22,7 +22,7 @@ config :logger, :console, format: "[$level] $message\n"
 config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
-config :sample_microservice, SampleMicroservice.Repo,
+config :user_manager, UserManager.Repo,
   adapter: Ecto.Adapters.MySQL,
   username: "root",
   password: "",

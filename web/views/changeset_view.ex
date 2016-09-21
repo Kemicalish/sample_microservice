@@ -1,5 +1,5 @@
-defmodule SampleMicroservice.ChangesetView do
-  use SampleMicroservice.Web, :view
+defmodule UserManager.ChangesetView do
+  use UserManager.Web, :view
 
   @doc """
   Traverses and translates changeset errors.

@@ -1,5 +1,5 @@
-defmodule SampleMicroservice.KongAdminRepo do
-  use Dayron.Repo, otp_app: :sample_microservice
+defmodule UserManager.KongAdminRepo do
+  use Dayron.Repo, otp_app: :user_manager
 
   defp fetch_in_row(row, key, value) do
     case Map.fetch(row, key) do

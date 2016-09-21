@@ -1,3 +1,3 @@
-defmodule SampleMicroservice.Repo do
-  use Ecto.Repo, otp_app: :sample_microservice
+defmodule UserManager.Repo do
+  use Ecto.Repo, otp_app: :user_manager
 end

@@ -1,5 +1,5 @@
-defmodule SampleMicroservice.ConsumerControllerTest do
-  use SampleMicroservice.ConnCase
+defmodule UserManager.ConsumerControllerTest do
+  use UserManager.ConnCase
   
   @valid_attrs %{ username: "phoenix_test" }
   @invalid_attrs %{ username: 1 }

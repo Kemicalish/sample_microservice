@@ -1,8 +1,8 @@
-defmodule SampleMicroservice.ConsumerController do
-  use SampleMicroservice.Web, :controller
+defmodule UserManager.ConsumerController do
+  use UserManager.Web, :controller
 
-  alias SampleMicroservice.Consumer
-  alias SampleMicroservice.KongAdminRepo
+  alias UserManager.Consumer
+  alias UserManager.KongAdminRepo
 
   plug :scrub_params, "consumer" when action in [:create, :update]
 
@@ -20,7 +20,7 @@ defmodule SampleMicroservice.ConsumerController do
       {:error, error} -> 
       conn
        |> put_status(:unprocessable_entity)
-       |> render(SampleMicroservice.ErrorView, "422.json") 
+       |> render(UserManager.ErrorView, "422.json") 
     end
   end
 
@@ -32,7 +32,7 @@ defmodule SampleMicroservice.ConsumerController do
       {:error, error}   ->
         conn
           |> put_status(:not_found)
-          |> render(SampleMicroservice.ErrorView, "404.json")
+          |> render(UserManager.ErrorView, "404.json")
     end
   end 
 end 

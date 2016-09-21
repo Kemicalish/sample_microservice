@@ -2,7 +2,7 @@ use Mix.Config
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :sample_microservice, SampleMicroservice.Endpoint,
+config :user_manager, UserManager.Endpoint,
   http: [port: 4001],
   server: false
 
@@ -10,7 +10,7 @@ config :sample_microservice, SampleMicroservice.Endpoint,
 config :logger, level: :warn
 
 # Configure your database
-config :sample_microservice, SampleMicroservice.Repo,
+config :user_manager, UserManager.Repo,
   adapter: Ecto.Adapters.MySQL,
   username: "root",
   password: "",

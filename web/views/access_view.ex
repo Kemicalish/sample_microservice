@@ -1,12 +1,12 @@
-defmodule SampleMicroservice.AccessView do
-  use SampleMicroservice.Web, :view
+defmodule UserManager.AccessView do
+  use UserManager.Web, :view
 
   def render("index.json", %{accesses: accesses}) do
-    %{data: render_many(accesses, SampleMicroservice.AccessView, "access.json")}
+    %{data: render_many(accesses, UserManager.AccessView, "access.json")}
   end
 
   def render("show.json", %{access: access}) do
-    %{data: render_one(access, SampleMicroservice.AccessView, "access.json")}
+    %{data: render_one(access, UserManager.AccessView, "access.json")}
   end
 
   def render("access.json", %{access: access}) do

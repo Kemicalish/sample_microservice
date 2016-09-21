@@ -1,3 +1,3 @@
-defmodule SampleMicroservice.KongRepo do
-  use Dayron.Repo, otp_app: :sample_microservice
+defmodule UserManager.KongRepo do
+  use Dayron.Repo, otp_app: :user_manager
 end

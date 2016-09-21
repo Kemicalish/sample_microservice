@@ -1,5 +1,5 @@
-defmodule SampleMicroservice.User do
-  use SampleMicroservice.Web, :model
+defmodule UserManager.User do
+  use UserManager.Web, :model
   
   schema "users" do
     field :name, :string

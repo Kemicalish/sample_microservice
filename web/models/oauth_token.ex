@@ -1,4 +1,4 @@
-defmodule SampleMicroservice.OauthToken do
+defmodule UserManager.OauthToken do
   def __from_json_list__(%{data: data}, opts) do
     Enum.map(data, &__from_json__(&1, opts))
   end

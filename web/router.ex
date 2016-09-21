@@ -1,11 +1,11 @@
-defmodule SampleMicroservice.Router do
-  use SampleMicroservice.Web, :router
+defmodule UserManager.Router do
+  use UserManager.Web, :router
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/", SampleMicroservice do
+  scope "/", UserManager do
     pipe_through :api
 
     resources "/consumers", ConsumerController, only: [:index, :create, :delete]

@@ -1,4 +1,4 @@
-# SampleMicroservice
+# UserManager
 
 To start your Phoenix app:
 

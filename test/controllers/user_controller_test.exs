@@ -1,10 +1,10 @@
-defmodule SampleMicroservice.UserControllerTest do
+defmodule UserManager.UserControllerTest do
   
-  use SampleMicroservice.ConnCase
+  use UserManager.ConnCase
   
-  alias SampleMicroservice.KongAdminRepo
-  alias SampleMicroservice.Consumer
-  alias SampleMicroservice.User
+  alias UserManager.KongAdminRepo
+  alias UserManager.Consumer
+  alias UserManager.User
 
   @valid_attrs %{name: "phoenix_test_user", password_hash: "Spo9s90s1mLonI2jK34O2mlsL39SoAk", password: "S3cr3t_Dud3"}
   @invalid_attrs %{name: "dfpgfdpgjfpdgjfdigjodijg", password: "1234"}
